@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "718196325364",
+    "project_id": "woc-seekr-ai",
+    "storage_bucket": "woc-seekr-ai.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:718196325364:android:f2b600779c0aec3587d7a1",
+        "android_client_info": {
+          "package_name": "com.example.seekr_ai"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZQuqgt8Ey8sn_2Iel_k2gjTLbUzyfSv8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
