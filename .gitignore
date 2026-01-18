@@ -44,3 +44,11 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Python
+server/seekrenv/
+server/__pycache__/
+server/.env
+
+# Firebase Sensitive
+server/woc-seekr-ai-firebase-adminsdk-fbsvc-14a3b5916b.json
