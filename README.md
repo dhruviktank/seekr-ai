@@ -3,45 +3,57 @@ Seekr AI is a modern, mobile application built with Flutter and Firebase. It fea
 ___
 [Download SeekrAI Untill Checkpoint 1](https://drive.google.com/file/d/13oywENGPEeMpbpaWj9gJZmwA2th7rgQx/view?usp=sharing)
 ## Features
-Secure Authentication: Sign up and Log in powered by Firebase Auth and Firestore.
+RAG Architecture: Unlike standard chatbots, Seekr AI performs real-time web searches to ground its responses in current facts.
 
-Persistent Profiles: User data (Full Name/Email) is retrieved from Firestore.
+Secure Authentication: Multi-layered security using Firebase Auth and JWT-protected FastAPI endpoints.
 
-Chat History: A dedicated space to view past "Summonings" (Work in Progress).
+Persistent Souls: User profiles and chat history are synced across devices via Cloud Firestore.
 
-Usage Limits: Built-in daily limit indicator (10/10) to manage AI energy.
+Usage Governance: Built-in energy limits (10/10) to manage API consumption and user engagement.
 
-State Management: Robust logic handling using the BLoC/Cubit pattern.
+Reactive UI: Clean, spooky state management powered by the BLoC/Cubit pattern.
 
 ## Tech Stack
-Frontend: Flutter
+Frontend (The Ritual)
+Framework: Flutter (Android/iOS)
 
-State Management: Flutter BLoC / Cubit
+State Management: BLoC & Cubit
 
-Backend: Firebase Authentication & Cloud Firestore
+Networking: Dio (with JWT Interceptors)
 
-Language: Dart
+Backend (The Void)
+Framework: FastAPI (Python 3.10+)
+
+AI Engine: Google Gemini 1.5 Flash (google-genai SDK)
+
+Search Engine: Google Custom Search API
+
+Database: Cloud Firestore (Admin SDK)
 
 ## Application Flow
-The application follows a linear security-first flow:
+Gateway: AuthCubit checks the session at startup.
 
-Splash/Wrapper: The AuthCubit checks if a user is already authenticated.
+Accession: Users login/register; Firebase issues a UID used for Firestore scoping.
 
-Authentication: * Login: Users enter credentials to enter the Void.
+The Summoning:
 
-Register: New souls are added to the Firestore users collection.
+User sends a prompt from the Flutter app.
 
-Chat Dashboard (Main): The central hub for AI interaction.
+FastAPI receives the request and triggers a Search Service.
 
-History: Users can navigate here to see a log of past interactions (currently displays a "Void is Silent" empty state).
+Search results are fed into Gemini as context.
 
-Profile Settings: Users can view their daily usage limits, toggle Spooky Mode, or "Leave the Void" (Logout).
+The finalized response is stored in Firestore and streamed back to the user.
+
+Chronicles: Users view past interactions retrieved directly from the "Void's" database.
 
 ## Installation & Setup
 Prerequisites
-Flutter SDK installed.
+Flutter SDK & Python 3.10+
 
-A Firebase project created in the Firebase Console.
+Firebase Project (with Firestore and Auth enabled)
+
+Google Cloud Console Project (with Custom Search API enabled)
 
 Steps
 Clone the repository:
@@ -61,8 +73,23 @@ Place your GoogleService-Info.plist in ios/Runner/.
 
 Install dependencies:
 
-Bash
+Backend Setup
 ```
+cd server
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+pip install -r requirements.txt
+```
+Create a .env file in /server:
+```
+GEMINI_API_KEY=your_key
+FIREBASE_PROJECT_ID=your_id
+GOOGLE_SEARCH_API_KEY=your_key
+GOOGLE_SEARCH_CX=your_cx_id
+```
+Frontend Setup (The App)
+```
+cd ..
 flutter pub get
 ```
 Run the app:
@@ -85,9 +112,9 @@ flutter build apk --release
 Locate the APK at build/app/outputs/flutter-apk/app-release.apk.
 
 📝 Roadmap (Work in Progress)
-[ ] Integration with different GenAI API for real-time responses.
+[✓] Integration with different GenAI API for real-time responses.
 
-[ ] Firestore Stream for Chat History synchronization.
+[✓] Firestore Stream for Chat History synchronization.
 
 [ ] Local caching for offline "Void" access.
 
