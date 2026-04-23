@@ -103,7 +103,7 @@ To generate a signed release APK for Android:
 
 Ensure your key.properties is configured in the android/ folder.
 
-Run the build command:
+Run the build commands:
 
 Bash
 ```
